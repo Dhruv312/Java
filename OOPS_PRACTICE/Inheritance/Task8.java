@@ -1,5 +1,6 @@
 // Scenario 8: Vehicle Rental System
 // Implement a vehicle rental system where you have a base class called "Vehicle" and derived classes like "Car," "Motorcycle," and "Truck." Each derived class can have its own rental rates and additional features specific to that type of vehicle.
+
 class Vehicle {
     protected String brand;
     protected String model;
@@ -33,9 +34,25 @@ class Car extends Vehicle {
 }
 
 class Motorcycle extends Vehicle{
-    private String 
+    private String color;
+
+    public Motorcycle(String brand ,String model , double rentalPrice ,String color){
+        super(brand, model, rentalPrice);
+        this.color = color;
+    }
+
+    public void displayDetails(){
+        super.displayDetails();
+        System.out.println("Motorcycle color: "+color);
+    }
 }
 
 public class Task8 {
+    public static void main(String[] args) {
+        Car car = new Car("Brand", "Model", 200, 4);
+        Motorcycle motorcycle = new Motorcycle("MBra", "Mmodel", 100, "red");
 
+        car.displayDetails();
+        motorcycle.displayDetails();
+    }
 }
